@@ -3,7 +3,7 @@ package com.ctozatto.calcurest.rest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.ctozatto.calcurest")
 public class CalcurestRestApplication {
 
 	public static void main(String[] args) {
