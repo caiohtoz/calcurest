@@ -5,14 +5,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties("service")
 public class CalculatorServiceProperties {
 
-	private String message;
+	private String homeMessage;
 
-	public String getMessage() {
-		return message;
+	public String getHomeMessage() {
+		return homeMessage;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setHomeMessage(String homeMessage) {
+		this.homeMessage = homeMessage;
 	}
 	
 }

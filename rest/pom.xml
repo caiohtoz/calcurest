@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ctozatto.calcurest</groupId>
 	<artifactId>rest</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<name>Calcurest REST</name>
 	<description>Application used to call Calcurest Calculator</description>
 	<properties>
@@ -25,6 +25,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
 		
 		<!-- Calculator -->

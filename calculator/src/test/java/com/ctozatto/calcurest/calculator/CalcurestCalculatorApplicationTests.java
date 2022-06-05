@@ -17,7 +17,7 @@ public class CalcurestCalculatorApplicationTests {
 	
 	@Test
 	public void contextLoads() {
-	  assertThat(calcService.message()).isNotNull();
+	  assertThat(calcService.homeMessage()).isNotNull();
 	}
 	
 	@SpringBootApplication

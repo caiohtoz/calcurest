@@ -13,8 +13,8 @@ public class CalculatorService {
 		this.properties = properties;
 	}
 	
-	public String message() {
-		return this.properties.getMessage();
+	public String homeMessage() {
+		return this.properties.getHomeMessage();
 	}
 
 }
