@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ctozatto.calcurest</groupId>
 	<artifactId>rest</artifactId>
-	<version>0.0.3</version>
+	<version>0.1.1</version>
 	<name>Calcurest REST</name>
 	<description>Application used to call Calcurest Calculator</description>
 	<properties>
