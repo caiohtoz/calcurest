@@ -25,4 +25,4 @@ It accepts 2 operands only, for all operations, and follows this format: **?a="o
 
 Example: http://localhost:8080/calcurest/add?a=1&b=2
 
-The result of each request is formatted in a JSON notation, as such: {"result":"3"}
+The result of each request is formatted in a JSON notation, as such: {"result":"3", "error"=""}. Whenever the result comes up empty, an error message is assigned to the "error" property.
