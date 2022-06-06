@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.ctozatto.calcurest.calculator.domain.BasicOperation;
 import com.ctozatto.calcurest.calculator.domain.OperatorEnum;
+import com.ctozatto.calcurest.rest.domain.OperationResult;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -28,7 +29,7 @@ public class RabbitMQSender {
 		this.rabbitTemplate = template;
 	}
 	
-	public JsonObject sendAndReceive(String paramA, String paramB, OperatorEnum operator) {
+	public OperationResult sendAndReceive(String paramA, String paramB, OperatorEnum operator) {
 		BigDecimal a = null;
 		BigDecimal b = null;
 		
@@ -43,7 +44,9 @@ public class RabbitMQSender {
 		
 		String received = (String) rabbitTemplate.convertSendAndReceive(exchange, routingKey, operation);
 		
-		return new Gson().fromJson(received, JsonObject.class);
+		JsonObject json = new Gson().fromJson(received, JsonObject.class);
+		
+		return new OperationResult(json.get("result").getAsString(), json.get("error").getAsString());
 	}
 	
 }

@@ -33,11 +33,14 @@ public class RabbitMQReceiver implements RabbitListenerConfigurer {
         	try {
         		result = CalculatorService.calculate(operation);
         	} catch(Exception e) {
+        		json.addProperty("result", "");
         		json.addProperty("error", "Error while calculating result. " + e.getMessage());
         	}
         
-        if (result != null)
+        if (result != null) {
         	json.addProperty("result", result.toString());
+        	json.addProperty("error", "");
+        }
         
         return json.toString();
     }
