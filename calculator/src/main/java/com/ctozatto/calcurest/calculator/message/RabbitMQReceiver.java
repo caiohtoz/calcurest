@@ -23,16 +23,21 @@ public class RabbitMQReceiver implements RabbitListenerConfigurer {
     }
     
 	@RabbitListener(queues = "${spring.rabbitmq.queue}")
-    public String receivedMessage(BasicOperation operation) {
+    public String receiveMessage(BasicOperation operation) {
         logger.debug("Operation received: " + operation.toString());
         
         BigDecimal result = null;
         JsonObject json = new JsonObject();
         
         if (operation != null)
-        	result = CalculatorService.calculate(operation);
+        	try {
+        		result = CalculatorService.calculate(operation);
+        	} catch(Exception e) {
+        		json.addProperty("error", "Error while calculating result. " + e.getMessage());
+        	}
         
-        json.addProperty("result", result.toString());
+        if (result != null)
+        	json.addProperty("result", result.toString());
         
         return json.toString();
     }
