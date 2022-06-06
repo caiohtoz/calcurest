@@ -91,7 +91,7 @@ public class CalculatorController {
 				return result;
 			}
 		} else {
-			result.addProperty("error", operationFailure + "Request missing operands.");
+			result.addProperty("error", operationFailure + "Request is missing operands.");
 		}
 		
 		if (result != null)
