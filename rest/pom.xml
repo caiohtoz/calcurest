@@ -37,6 +37,12 @@
 			<artifactId>calculator</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		
+		<!-- Gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
 
 		<!-- Spring Boot Test -->
 		<dependency>

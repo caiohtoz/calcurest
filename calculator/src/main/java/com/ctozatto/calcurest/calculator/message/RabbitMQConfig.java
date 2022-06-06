@@ -2,7 +2,7 @@ package com.ctozatto.calcurest.calculator.message;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.Exchange;
+import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.ExchangeBuilder;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
@@ -37,11 +37,11 @@ public class RabbitMQConfig {
 	
 	@Bean
 	Queue queue() {
-		return new Queue(queue, true);
+		return new Queue(queue);
 	}
 	
 	@Bean
-	Exchange calculatorExchange() {
+	DirectExchange calculatorExchange() {
 		return ExchangeBuilder.directExchange(exchange).durable(true).build();
     }
 	
@@ -50,8 +50,7 @@ public class RabbitMQConfig {
     	return BindingBuilder
     			.bind(queue())
     			.to(calculatorExchange())
-    			.with(routingKey)
-    			.noargs();
+    			.with(routingKey);
     }
 	
 	@Bean
